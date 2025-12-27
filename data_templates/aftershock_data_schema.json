@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Aftershock Data Schema",
+  "description": "Schema for validating aftershock data entries",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["event_id", "date", "time", "latitude", "longitude", "depth_km", "magnitude", "magnitude_type", "location_method", "phase_count", "agency"],
+    "properties": {
+      "event_id": {
+        "type": "string",
+        "description": "Unique identifier for the seismic event"
+      },
+      "date": {
+        "type": "string",
+        "format": "date",
+        "description": "Date of event in YYYY-MM-DD format"
+      },
+      "time": {
+        "type": "string",
+        "pattern": "^([0-1]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)$",
+        "description": "Time of event in HH:MM:SS format (UTC)"
+      },
+      "latitude": {
+        "type": "number",
+        "minimum": -90,
+        "maximum": 90,
+        "description": "Latitude in decimal degrees (WGS84)"
+      },
+      "longitude": {
+        "type": "number",
+        "minimum": -180,
+        "maximum": 180,
+        "description": "Longitude in decimal degrees (WGS84)"
+      },
+      "depth_km": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1000,
+        "description": "Depth in kilometers (positive downwards)"
+      },
+      "magnitude": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 10,
+        "description": "Magnitude value"
+      },
+      "magnitude_type": {
+        "type": "string",
+        "enum": ["ML", "Mb", "Ms", "Mw", "Md", "Mh", "other"],
+        "description": "Type of magnitude scale used"
+      },
+      "location_method": {
+        "type": "string",
+        "enum": ["HYPOINVERSE", "LOCSAT", "HYPOCENTER", "NLLOC", "NonLinLoc", "other"],
+        "description": "Method used for hypocentral location"
+      },
+      "phase_count": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Number of phase picks used in location"
+      },
+      "agency": {
+        "type": "string",
+        "description": "Reporting agency or network"
+      },
+      "remarks": {
+        "type": "string",
+        "description": "Optional comments about the event"
+      }
+    }
+  }
+}
