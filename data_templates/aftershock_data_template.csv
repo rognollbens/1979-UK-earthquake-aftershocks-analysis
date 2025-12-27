@@ -1,0 +1,17 @@
+event_id,date,time,latitude,longitude,depth_km,magnitude,magnitude_type,location_method,phase_count,agency,remarks
+1979_001,1979-12-28,00:00:00,54.5000,-1.5000,10.0,4.9,ML,HYPOINVERSE,12,BGS,Main shock - approximate location
+1979_002,1979-12-28,00:30:00,54.5200,-1.4800,12.5,3.2,ML,HYPOINVERSE,8,BGS,First aftershock
+1979_003,1979-12-28,01:15:00,54.5100,-1.5200,11.8,2.8,ML,HYPOINVERSE,6,BGS,
+# Add more aftershocks following this template
+# event_id: unique identifier (string)
+# date: YYYY-MM-DD
+# time: HH:MM:SS (UTC)
+# latitude: decimal degrees (WGS84)
+# longitude: decimal degrees (WGS84)
+# depth_km: depth in kilometers (positive)
+# magnitude: numerical value
+# magnitude_type: ML, Mb, Mw, etc.
+# location_method: HYPOINVERSE, LOCSAT, etc.
+# phase_count: number of phase picks used
+# agency: reporting agency (BGS, USGS, etc.)
+# remarks: optional comments
